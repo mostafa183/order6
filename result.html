@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نتيجة الطلب</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="result-container">
+        <h1>معلومات الطلب المقدم</h1>
+
+        <h2>معلومات الشركة</h2>
+        <div><label>اسم الشركة:</label> <span id="resultCompanyName"></span></div>
+        <div><label>البريد الإلكتروني:</label> <span id="resultCompanyEmail"></span></div>
+        <div><label>العنوان:</label> <span id="resultAddress"></span></div>
+        <div><label>المدينة:</label> <span id="resultCity"></span></div>
+        <div><label>الرمز البريدي:</label> <span id="resultZipCode"></span></div>
+        <div><label>البلد:</label> <span id="resultCountry"></span></div>
+        <div><label>الولاية/المحافظة:</label> <span id="resultState"></span></div>
+
+        <h2>معلومات المورد</h2>
+        <div><label>اسم المورد:</label> <span id="resultVendorName"></span></div>
+        <div><label>البريد الإلكتروني:</label> <span id="resultVendorEmail"></span></div>
+        <div><label>رقم الهاتف:</label> <span id="resultVendorPhone"></span></div>
+        <div><label>العنوان:</label> <span id="resultVendorAddress"></span></div>
+        <div><label>المدينة:</label> <span id="resultVendorCity"></span></div>
+        <div><label>الرمز البريدي:</label> <span id="resultVendorZip"></span></div>
+        <div><label>البلد:</label> <span id="resultVendorCountry"></span></div>
+        <div><label>الولاية/المحافظة:</label> <span id="resultVendorState"></span></div>
+
+        <h2>معلومات أمر الشراء</h2>
+        <div><label>رقم أمر الشراء:</label> <span id="resultPurchaseOrderNumber"></span></div>
+        <div><label>تاريخ أمر الشراء:</label> <span id="resultPurchaseOrderDate"></span></div>
+        <div><label>تاريخ التسليم:</label> <span id="resultDeliveryDate"></span></div>
+        <div><label>طريقة الشحن:</label> <span id="resultShippingMethod"></span></div>
+        <div><label>شروط الشحن:</label> <span id="resultShippingTerms"></span></div>
+
+        <h2>التكلفة الإجمالية</h2>
+        <div><label>نسبة الضريبة:</label> <span id="resultTaxRate"></span> %</div>
+        <div><label>المجموع الفرعي:</label> <span id="resultSubtotal"></span> جنيه</div>
+        <div><label>الضريبة:</label> <span id="resultTax"></span> جنيه</div>
+        <div><label>الإجمالي:</label> <span id="resultTotal"></span> جنيه</div>
+
+        <button class="print-btn" onclick="window.print()">طباعة</button>
+    </div>
+
+    <script>
+        // Get form data from local storage and display it
+        const formData = JSON.parse(localStorage.getItem('purchaseOrderData'));
+
+        document.getElementById('resultCompanyName').innerText = formData.companyName;
+        document.getElementById('resultCompanyEmail').innerText = formData.companyEmail;
+        document.getElementById('resultAddress').innerText = formData.address;
+        document.getElementById('resultCity').innerText = formData.city;
+        document.getElementById('resultZipCode').innerText = formData.zipCode;
+        document.getElementById('resultCountry').innerText = formData.country;
+        document.getElementById('resultState').innerText = formData.state;
+
+        document.getElementById('resultVendorName').innerText = formData.vendorName;
+        document.getElementById('resultVendorEmail').innerText = formData.vendorEmail;
+        document.getElementById('resultVendorPhone').innerText = formData.vendorPhone;
+        document.getElementById('resultVendorAddress').innerText = formData.vendorAddress;
+        document.getElementById('resultVendorCity').innerText = formData.vendorCity;
+        document.getElementById('resultVendorZip').innerText = formData.vendorZip;
+        document.getElementById('resultVendorCountry').innerText = formData.vendorCountry;
+        document.getElementById('resultVendorState').innerText = formData.vendorState;
+
+        document.getElementById('resultPurchaseOrderNumber').innerText = formData.purchaseOrderNumber;
+        document.getElementById('resultPurchaseOrderDate').innerText = formData.purchaseOrderDate;
+        document.getElementById('resultDeliveryDate').innerText = formData.deliveryDate;
+        document.getElementById('resultShippingMethod').innerText = formData.shippingMethod;
+        document.getElementById('resultShippingTerms').innerText = formData.shippingTerms;
+
+        document.getElementById('resultTaxRate').innerText = formData.taxRate;
+        document.getElementById('resultSubtotal').innerText = formData.subtotal;
+        document.getElementById('resultTax').innerText = formData.tax;
+        document.getElementById('resultTotal').innerText = formData.total;
+    </script>
+</body>
+</html>
